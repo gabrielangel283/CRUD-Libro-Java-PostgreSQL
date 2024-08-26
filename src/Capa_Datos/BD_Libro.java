@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Capa_Datos;
 
 import Capa_Logica.Libro;
@@ -9,10 +5,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author USER
- */
 public class BD_Libro {
     static CConexion conectar = new CConexion();
     static Connection con;
@@ -38,7 +30,7 @@ public class BD_Libro {
                 datos.add(l);
             }
             con.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error en listar datos de BD: " + e.getMessage());
         }
         
@@ -64,7 +56,7 @@ public class BD_Libro {
             ps.setInt(5, obj.getnPaginas());
             ps.execute();
             con.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error en agregar el dato a BD: " + e.getMessage());
         }
     }
@@ -78,7 +70,7 @@ public class BD_Libro {
             
             ps.executeUpdate();
             con.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error para eliminar datos de BD: " + e.getMessage());
         }
     }
@@ -97,7 +89,7 @@ public class BD_Libro {
             ps.setInt(5, nuevoObj.getnPaginas());
             ps.executeUpdate();
             con.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error para modificar un dato de BD: " + e.getMessage());
         }
     }
@@ -113,6 +105,7 @@ public class BD_Libro {
         return null;
     }
     
+    @SuppressWarnings("rawtypes")
     public static ArrayList filtrarPorTituloOAutor(String texto) {
         ArrayList<Libro> listaFiltrada = new ArrayList<>();
         String minusTexto = texto.toLowerCase();

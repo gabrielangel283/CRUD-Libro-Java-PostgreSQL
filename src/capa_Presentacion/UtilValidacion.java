@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package capa_Presentacion;
 
-/**
- *
- * @author USER
- */
 public class UtilValidacion {
     
     public static boolean esValidoSoloLetras(String texto) { // Valida un texto solo con letras
